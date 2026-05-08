@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.db
+.env
+
+# Testing
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h1>📦 Inventory Management System</h1>
+        <div>
+            <button onclick="showSection('products')">Products</button>
+            <button onclick="showSection('orders')">Orders</button>
+            <button onclick="showSection('lowstock')">⚠️ Low Stock</button>
+        </div>
+    </nav>
+
+    <!-- PRODUCTS SECTION -->
+    <div id="products" class="section">
+        <h2>Products</h2>
+
+        <!-- Add Product Form -->
+        <div class="card">
+            <h3>Add New Product</h3>
+            <input type="text" id="p-name" placeholder="Product Name" />
+            <input type="text" id="p-desc" placeholder="Description" />
+            <input type="number" id="p-qty" placeholder="Quantity" />
+            <input type="number" id="p-price" placeholder="Price" />
+            <input type="text" id="p-cat" placeholder="Category" />
+            <button onclick="createProduct()">➕ Add Product</button>
+        </div>
+
+        <!-- Products Table -->
+        <div class="card">
+            <h3>All Products <button onclick="loadProducts()">🔄 Refresh</button></h3>
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="products-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ORDERS SECTION -->
+    <div id="orders" class="section" style="display:none">
+        <h2>Orders</h2>
+
+        <!-- Create Order Form -->
+        <div class="card">
+            <h3>Create New Order</h3>
+            <input type="number" id="o-pid" placeholder="Product ID" />
+            <input type="number" id="o-qty" placeholder="Quantity" />
+            <button onclick="createOrder()">🛒 Place Order</button>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="card">
+            <h3>All Orders <button onclick="loadOrders()">🔄 Refresh</button></h3>
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- LOW STOCK SECTION -->
+    <div id="lowstock" class="section" style="display:none">
+        <h2>⚠️ Low Stock Alerts</h2>
+        <div class="card">
+            <h3>Products with stock ≤ 5 <button onclick="loadLowStock()">🔄 Refresh</button></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="lowstock-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
