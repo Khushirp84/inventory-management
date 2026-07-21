@@ -18,7 +18,7 @@ function showToast(msg, error = false) {
     setTimeout(() => toast.style.display = 'none', 3000);
 }
 
-// ✅ LOAD ALL PRODUCTS
+//  LOAD ALL PRODUCTS
 async function loadProducts() {
     const res = await fetch(`${API}/products/`);
     const products = await res.json();
@@ -39,7 +39,7 @@ async function loadProducts() {
     });
 }
 
-// ✅ CREATE PRODUCT
+//  CREATE PRODUCT
 async function createProduct() {
     const data = {
         name: document.getElementById('p-name').value,
@@ -65,7 +65,7 @@ async function createProduct() {
     }
 }
 
-// ✅ DELETE PRODUCT
+//  DELETE PRODUCT
 async function deleteProduct(id) {
     if (!confirm('Delete this product?')) return;
     const res = await fetch(`${API}/products/${id}`, { method: 'DELETE' });
@@ -75,7 +75,7 @@ async function deleteProduct(id) {
     }
 }
 
-// ✅ LOAD ALL ORDERS
+//  LOAD ALL ORDERS
 async function loadOrders() {
     const res = await fetch(`${API}/orders/`);
     const orders = await res.json();
@@ -96,7 +96,7 @@ async function loadOrders() {
     });
 }
 
-// ✅ CREATE ORDER
+//  CREATE ORDER
 async function createOrder() {
     const data = {
         product_id: parseInt(document.getElementById('o-pid').value),
@@ -120,7 +120,7 @@ async function createOrder() {
     }
 }
 
-// ✅ UPDATE ORDER STATUS
+//  UPDATE ORDER STATUS
 async function updateStatus(id, status) {
     const res = await fetch(`${API}/orders/${id}/status?status=${status}`, {
         method: 'PUT'
@@ -131,7 +131,7 @@ async function updateStatus(id, status) {
     }
 }
 
-// ✅ LOAD LOW STOCK
+//  LOAD LOW STOCK
 async function loadLowStock() {
     const res = await fetch(`${API}/products/alerts/low-stock`);
     const products = await res.json();
